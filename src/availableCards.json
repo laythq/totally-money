@@ -1,0 +1,32 @@
+{
+  "Student Life":
+  {
+    "name": "Student Life",
+    "apr": 18.9,
+    "Balance Transfer Offer Duration": 0,
+    "Purchase Offer Duration": 0,
+    "Credit Available": 1200,
+    "Student Only": true,
+    "High Income Only": false
+  },
+  "Anywhere Card":
+  {
+    "name": "Anywhere Card",
+    "apr": 33.9,
+    "Balance Transfer Offer Duration": 0,
+    "Purchase Offer Duration": 0,
+    "Credit Available": 300,
+    "Student Only": false,
+    "High Income Only": false
+  },
+  "Liquid Card":
+  {
+    "name": "Liquid Card",
+    "apr": 33.9,
+    "Balance Transfer Offer Duration": 12,
+    "Purchase Offer Duration": 6,
+    "Credit Available": 3000,
+    "Student Only": false,
+    "High Income Only": true
+  }
+}

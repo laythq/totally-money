@@ -38,8 +38,12 @@ describe('CardList', () => {
     expect(cardList.returnCards(false, 12000)).toEqual([card2])
   })
 
-
   test('#returnCards returns Anywhere and Liquid is not student with income > 16000', () => {
     expect(cardList.returnCards(false, 20000)).toEqual([card2, card3])
   })
+
+  test('#availableCredit calculates the total credit available for a card list', () => {
+    expect(cardList.availableCredit([card1, card2, card3])).toEqual(4500)
+  })
+
 })

@@ -40,4 +40,10 @@ export class CardList {
     }
   }
 
+  availableCredit(cards) {
+    let credit = 0
+    cards.map((card) => { credit += card.creditAvailable })
+    return credit
+  }
+
 }

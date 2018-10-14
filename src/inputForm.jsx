@@ -6,48 +6,81 @@ import {Card, CardList, StudentLife, AnywhereCard, LiquidCard} from './unit.js'
 class InputForm extends Component {
   constructor(props) {
     super(props);
-    this.props = {
-      cardList: 
-    }
     this.state = {
-      availableCards: [StudentLife, AnywhereCard, LiquidCard],
+      availableCards: props.cards,
       student: false,
-      highIncome: true
+      highIncome: true,
+      totalCredit: 4500
     }
+
+    this.returnCards = this.returnCards.bind(this)
   }
 
-  setStudentStatus(bool) {
-    this.setState({student: bool})
+  setStudentStatus(event) {
+    var boolean = (event.target.value == 'true')
+    this.setState({student: boolean}, this.returnCards)
+
   }
 
-  setIncomeStatus(bool) {
-    this.setState({highIncome: bool})
+  setIncomeStatus(event) {
+    var boolean = (event.target.value == 'true')
+    this.setState({highIncome: boolean}, this.returnCards)
   }
 
   generateCards() {
-    return this.state.availableCards.map((card) => <div key={card.name}>{card.name}</div>)
+    return this.state.availableCards.map((card) => <div class="card">
+                                                    <p class="title">{card.name}</p>
+                                                    <p class="apr">APR: <strong>{card.apr}%</strong></p>
+                                                    <p class="b-t">Balance Transfer Offer Duration: <strong>{card.balanceTransferOfferDuration} months</strong></p>
+                                                    <p class="purchase">Purchase Offer Duration: <strong>{card.purchaseOfferDuration} months</strong></p>
+                                                    <p class="credit">Credit Available: <strong>£{card.creditAvailable}</strong></p>
+                                                    </div>)
   }
 
   returnCards() {
-    console.log(CardList.returnCards())
+    const cardList = new CardList(this.props.cards[0], this.props.cards[1], this.props.cards[2])
+    this.setState({availableCards: cardList.returnCards(this.state.student, this.state.highIncome)}, this.generateTotalCredit)
+  }
+
+  generateTotalCredit() {
+    const cardList = new CardList(this.props.cards[0], this.props.cards[1], this.props.cards[2])
+    this.setState({totalCredit: cardList.availableCredit(this.state.availableCards)})
   }
 
   render() {
     return (
-      <div className="Credit Check ">
-        <div className="Student" >
-        <h1>Are you a Student?</h1>
-          <button onClick={() => this.setStudentStatus(true)} id="isStudent"> Yes </button>
-          <button onClick={() => this.setStudentStatus(false)} id="isNotStudent"> No </button>
-        </div>
-        <div className="Income">
-        <h1> Is your income over $16,000? </h1>
-          <button onClick={() => this.setIncomeStatus(true)} id="highIncome"> Yes </button>
-          <button onClick={() => this.setIncomeStatus(false)} id="lowIncome"> No </button>
-        </div>
+      <div className="wrapper">
+        <div className="UserInput">
+          <div className="Student">
+            <h1>Are you a Student?</h1>
+              <div onChange={event => this.setStudentStatus(event)} >
+                <label class="radio">
+                  <input type="radio" defaultChecked name="student" value={true} />Yes
+                </label>
+                <label class="radio">
+                  <input type="radio" name="student" value={false} />No
+                </label>
+              </div>
+          </div>
+          <div className="Income">
+            <h1>Is your income over £16,000?</h1>
+              <div onChange={event => this.setIncomeStatus(event)} >
+                <label class="radio">
+                  <input type="radio" defaultChecked name="income" value={true} />Yes
+                </label>
+                <label class="radio">
+                  <input type="radio" name="income" value={false} />No
+                </label>
+              </div>
+            </div>
+          </div>
         <div className="AvailableCards">
         <h1>Available Cards</h1>
         {this.generateCards()}
+        </div>
+        <div className="TotalAvailableCredit">
+        <h1>Total Available Credit</h1>
+        <p>£{this.state.totalCredit}</p>
         </div>
       </div>
     );

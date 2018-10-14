@@ -29,9 +29,9 @@ export class CardList {
     this.cards = [...arguments]
   }
 
-  returnCards(isStudent, income) {
+  returnCards(isStudent, highIncome) {
       let firstFilter = this.studentScreen(isStudent)
-      return this.incomeScreen(firstFilter, income)
+      return this.incomeScreen(firstFilter, highIncome)
   }
 
   studentScreen(boolean) {
@@ -43,8 +43,8 @@ export class CardList {
     }
   }
 
-  incomeScreen(cards, income) {
-    if (income > 16000) {
+  incomeScreen(cards, highIncome) {
+    if (highIncome === true) {
       return cards
     }
     else {

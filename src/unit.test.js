@@ -27,19 +27,19 @@ describe('CardList', () => {
   })
 
   test('#returnCards returns all three if student with income > 16000', () => {
-    expect(cardList.returnCards(true, 20000)).toEqual([card1, card2, card3])
+    expect(cardList.returnCards(true, true)).toEqual([card1, card2, card3])
   })
 
   test('#returnCards returns Student Life and Anywhere if student with income < 16000', () => {
-    expect(cardList.returnCards(true, 15000)).toEqual([card1, card2])
+    expect(cardList.returnCards(true, false)).toEqual([card1, card2])
   })
 
-  test('#returnCards returns Liquid Card and Anywhere if not student with income < 16000', () => {
-    expect(cardList.returnCards(false, 12000)).toEqual([card2])
+  test('#returnCards returns Anywhere Card if not student with income < 16000', () => {
+    expect(cardList.returnCards(false, false)).toEqual([card2])
   })
 
   test('#returnCards returns Anywhere and Liquid is not student with income > 16000', () => {
-    expect(cardList.returnCards(false, 20000)).toEqual([card2, card3])
+    expect(cardList.returnCards(false, true)).toEqual([card2, card3])
   })
 
   test('#availableCredit calculates the total credit available for a card list', () => {

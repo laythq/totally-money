@@ -1,32 +1,77 @@
-.App {
+body {
+  background: #f7f7f7;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: auto;
+  text-align: center;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+}
+
+.UserInput {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  text-align: center
+}
+
+h1 {
+  font-weight: 800;
+  color: #51606e;
+}
+
+.radio {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.radio input {
+  height: 15px;
+}
+
+.Student {
+  grid-row: 1/2;
+}
+
+.UserInput h1 {
+  margin-bottom: 10px
+}
+
+.Income {
+  grid-row: 1/2;
+}
+
+.AvailableCards {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.card {
+  border: 1px solid black;
+  border-radius: 25px;
+  width: 330px;
+  padding: 20px;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card .title {
+  text-align: center;
+  font-size: 25px;
+  margin: auto;
+  font-weight: 700;
 }
 
-.App-link {
-  color: #61dafb;
+.card p {
+  text-align: left;
+  margin: auto;
+  line-height: 29px;
+  font-weight: 400;
+  color: #51606e;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.TotalAvailableCredit p {
+  font-size: 35px;
+  color: #51606e;
+  font-weight: 600;
+  margin: auto;
 }

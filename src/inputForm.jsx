@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './inputForm.css';
+import './card.css'
 import {Card, CardList, StudentLife, AnywhereCard, LiquidCard} from './unit.js'
 
 class InputForm extends Component {
@@ -8,7 +9,7 @@ class InputForm extends Component {
     super(props);
     this.state = {
       availableCards: props.cards,
-      student: false,
+      student: true,
       highIncome: true,
       totalCredit: 4500
     }
@@ -29,11 +30,16 @@ class InputForm extends Component {
 
   generateCards() {
     return this.state.availableCards.map((card) => <div class="card">
-                                                    <p class="title">{card.name}</p>
-                                                    <p class="apr">APR: <strong>{card.apr}%</strong></p>
-                                                    <p class="b-t">Balance Transfer Offer Duration: <strong>{card.balanceTransferOfferDuration} months</strong></p>
-                                                    <p class="purchase">Purchase Offer Duration: <strong>{card.purchaseOfferDuration} months</strong></p>
-                                                    <p class="credit">Credit Available: <strong>£{card.creditAvailable}</strong></p>
+                                                      <div class="side">
+                                                        <p class="title">{card.name}</p>
+                                                        <p class="apr">APR: <strong>{card.apr}%</strong></p>
+                                                        <p class="b-t">Balance Transfer Offer Duration: <strong>{card.balanceTransferOfferDuration} months</strong></p>
+                                                        <p class="purchase">Purchase Offer Duration: <strong>{card.purchaseOfferDuration} months</strong></p>
+                                                        <p class="credit">Credit Available: <strong>£{card.creditAvailable}</strong></p>
+                                                      </div>
+                                                      <div class="side back">
+                                                        <p>{card.description}</p>
+                                                      </div>
                                                     </div>)
   }
 
@@ -55,10 +61,10 @@ class InputForm extends Component {
             <h1>Are you a Student?</h1>
               <div onChange={event => this.setStudentStatus(event)} >
                 <label class="radio">
-                  <input type="radio" defaultChecked name="student" value={true} />Yes
+                  <input type="radio" defaultChecked name="student" id="isStudent" value={true} />Yes
                 </label>
                 <label class="radio">
-                  <input type="radio" name="student" value={false} />No
+                  <input type="radio" name="student" id="isNotStudent" value={false} />No
                 </label>
               </div>
           </div>
@@ -66,10 +72,10 @@ class InputForm extends Component {
             <h1>Is your income over £16,000?</h1>
               <div onChange={event => this.setIncomeStatus(event)} >
                 <label class="radio">
-                  <input type="radio" defaultChecked name="income" value={true} />Yes
+                  <input type="radio" defaultChecked name="income" id="highIncome" value={true} />Yes
                 </label>
                 <label class="radio">
-                  <input type="radio" name="income" value={false} />No
+                  <input type="radio" name="income" id="lowIncome" value={false} />No
                 </label>
               </div>
             </div>

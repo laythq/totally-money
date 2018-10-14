@@ -1,0 +1,85 @@
+.card {
+  /* position: absolute; */
+  /* height: auto; */
+  perspective: 600;
+  /* display: block; */
+
+  /* text-align: center; */
+  /* display: inline-block; */
+}
+
+.card {
+  border: 1px solid black;
+  border-radius: 25px;
+  width: 330px;
+  height: 167px;
+  /* padding: 20px; */
+  margin-bottom: 10px;
+  transform-style: preserve-3d;
+  position: relative;
+  /* display: block; */
+}
+
+.card .title {
+  text-align: center;
+  font-size: 25px;
+  margin: auto;
+  font-weight: 700;
+}
+
+.card p {
+  text-align: left;
+  margin: auto;
+  line-height: 29px;
+  font-weight: 400;
+  color: #51606e;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+  /* display: block; */
+}
+
+.card .side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  backface-visibility: hidden;
+  /* border-radius: 6px;
+  height: 100%;
+  padding: 20px; */
+  /* width: auto; */
+  /* margin: 0 auto; */
+  /* overflow: hidden; */
+  /* padding: 20px; */
+  margin: 10px;
+  /* text-align: center; */
+  width: 310px;
+  height: 167px;
+}
+.card .back {
+
+  top: 0;
+  left: 0;
+  text-align: center;
+  transform: rotateY(180deg);
+  position: absolute;
+  margin: 10px;
+  width: 310px;
+  height: 147px;
+}
+
+.card .back p {
+  text-align: center;
+  vertical-align: middle;
+  /* line-height: 147px; */
+  /* top: 50%; */
+}
+/* .card .back {
+  background: #eaeaed;
+  color: #0087cc;
+  line-height: 150px;
+  text-align: center;
+  transform: rotateY(180deg);
+} */

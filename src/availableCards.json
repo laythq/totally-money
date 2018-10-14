@@ -1,5 +1,4 @@
-{
-  "Student Life":
+[
   {
     "name": "Student Life",
     "apr": 18.9,
@@ -10,7 +9,6 @@
     "High Income Only": false,
     "Description": "The Student Life credit card is only available to customers with an employment status of Student."
   },
-  "Anywhere Card":
   {
     "name": "Anywhere Card",
     "apr": 33.9,
@@ -21,7 +19,6 @@
     "High Income Only": false,
     "Description": "The anywhere card is available to anyone anywhere."
   },
-  "Liquid Card":
   {
     "name": "Liquid Card",
     "apr": 33.9,
@@ -32,4 +29,4 @@
     "High Income Only": true,
     "Description": "The Liquid card is a card available to customers who have an income of more than £16,000."
   }
-}
+]

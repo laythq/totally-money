@@ -19,15 +19,15 @@ export class Card {
   }
 }
 
-const StudentLife = new Card(SL['name'], SL['apr'], SL['Balance Transfer Offer Duration'], SL['Purchase Offer Duration'], SL['Credit Available'], SL['Student Only'], SL['High Income Only'], SL['Description'])
-const AnywhereCard = new Card(AC['name'], AC['apr'], AC['Balance Transfer Offer Duration'], AC['Purchase Offer Duration'], AC['Credit Available'], AC['Student Only'], AC['High Income Only'], AC['Description'])
-const LiquidCard = new Card(LC['name'], LC['apr'], LC['Balance Transfer Offer Duration'], LC['Purchase Offer Duration'], LC['Credit Available'], LC['Student Only'], LC['High Income Only'], LC['Description'])
+// const StudentLife = new Card(SL['name'], SL['apr'], SL['Balance Transfer Offer Duration'], SL['Purchase Offer Duration'], SL['Credit Available'], SL['Student Only'], SL['High Income Only'], SL['Description'])
+// const AnywhereCard = new Card(AC['name'], AC['apr'], AC['Balance Transfer Offer Duration'], AC['Purchase Offer Duration'], AC['Credit Available'], AC['Student Only'], AC['High Income Only'], AC['Description'])
+// const LiquidCard = new Card(LC['name'], LC['apr'], LC['Balance Transfer Offer Duration'], LC['Purchase Offer Duration'], LC['Credit Available'], LC['Student Only'], LC['High Income Only'], LC['Description'])
 
-export { StudentLife, AnywhereCard, LiquidCard }
+// export { StudentLife, AnywhereCard, LiquidCard }
 
 export class CardList {
   constructor(cards) {
-    this.cards = [...arguments]
+    this.cards = cards
   }
 
   returnCards(isStudent, highIncome) {
@@ -40,7 +40,7 @@ export class CardList {
       return this.cards
     }
     else {
-      return this.cards.filter(card => card.isStudent === false)
+      return this.cards.filter(card => card['Student Only'] === false)
     }
   }
 

@@ -28,14 +28,14 @@ describe('Input Form', () => {
 //     expect(wrapper.state('student')).toEqual(true)
 //   });
 //   it('clicking `No will change state of student back to false`', () => {
-//     let wrapper = shallow(<InputForm cards={[StudentLife, AnywhereCard, LiquidCard]}/>);
+//     let wrapper  = shallow(<InputForm cards={[StudentLife, AnywhereCard, LiquidCard]}/>);
 //     // wrapper.find('#isStudent').simulate('check')
 //     console.log(wrapper.find('#isNotStudent'))
 //     wrapper.find('#isNotStudent').simulate('change', { target: { checked: true } })
 //     expect(wrapper.state('student')).toEqual(false)
 //   })
 // })
-// 
+//
 // describe('Income Button', () => {
 //   it('renders with a high and low income button', () => {
 //     let wrapper = shallow(<InputForm cards={[StudentLife, AnywhereCard, LiquidCard]}/>);

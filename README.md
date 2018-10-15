@@ -8,7 +8,8 @@ https://github.com/laythq/totally-money/blob/master/totally-money.png
 
 ../blob/master/myimage.png?raw=true
 
-![Image](./blob/master/totally-money.png?raw=true)
+![Image](./totally-money.png?raw=true)
 
 
 
+https://github.com/laythq/totally-money/blob/master/totally-money.png

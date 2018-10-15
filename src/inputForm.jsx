@@ -11,7 +11,7 @@ class InputForm extends Component {
       availableCards: props.cards,
       student: true,
       highIncome: true,
-      totalCredit: 4500
+      totalCredit: 0,
     }
 
     this.returnCards = this.returnCards.bind(this)
@@ -19,6 +19,7 @@ class InputForm extends Component {
 
   setStudentStatus(event) {
     var boolean = (event.target.value == 'true')
+    console.log(boolean)
     this.setState({student: boolean}, this.returnCards)
 
   }
@@ -29,28 +30,34 @@ class InputForm extends Component {
   }
 
   generateCards() {
-    return this.state.availableCards.map((card) => <div class="card">
+    return this.state.availableCards.map((card) => <div key={card['name']} class="card">
                                                       <div class="side">
-                                                        <p class="title">{card.name}</p>
-                                                        <p class="apr">APR: <strong>{card.apr}%</strong></p>
-                                                        <p class="b-t">Balance Transfer Offer Duration: <strong>{card.balanceTransferOfferDuration} months</strong></p>
-                                                        <p class="purchase">Purchase Offer Duration: <strong>{card.purchaseOfferDuration} months</strong></p>
-                                                        <p class="credit">Credit Available: <strong>£{card.creditAvailable}</strong></p>
+                                                        <p class="title">{card['name']}</p>
+                                                        <p class="apr">APR: <strong>{card['apr']}%</strong></p>
+                                                        <p class="b-t">Balance Transfer Offer Duration: <strong>{card['Balance Transfer Offer Duration']} months</strong></p>
+                                                        <p class="purchase">Purchase Offer Duration: <strong>{card['Purchase Offer Duration']} months</strong></p>
+                                                        <p class="credit">Credit Available: <strong>£{card['Credit Available']}</strong></p>
                                                       </div>
                                                       <div class="side back">
-                                                        <p>{card.description}</p>
+                                                        <p>{card['Description']}</p>
+                                                        <p>Select: <input type="checkbox" name={card['name']} value={card['Credit Available']} onChange={event => this.selectCard(event)}/></p>
                                                       </div>
                                                     </div>)
   }
 
   returnCards() {
-    const cardList = new CardList(this.props.cards[0], this.props.cards[1], this.props.cards[2])
+    const cardList = new CardList(this.props.cards)
     this.setState({availableCards: cardList.returnCards(this.state.student, this.state.highIncome)}, this.generateTotalCredit)
   }
 
+  selectCard(event) {
+    if (event.target.checked) { this.setState({totalCredit: this.state.totalCredit += parseInt(event.target.value) })}
+    else { this.setState({totalCredit: this.state.totalCredit -= parseInt(event.target.value)})}
+  }
+
   generateTotalCredit() {
-    const cardList = new CardList(this.props.cards[0], this.props.cards[1], this.props.cards[2])
-    this.setState({totalCredit: cardList.availableCredit(this.state.availableCards)})
+    const cardList = new CardList(this.props.cards)
+    this.setState({totalCredit: cardList.availableCredit(this.state.selectedCards)})
   }
 
   render() {
@@ -82,6 +89,7 @@ class InputForm extends Component {
           </div>
         <div className="AvailableCards">
         <h1>Available Cards</h1>
+        <p>(Hover to Select)</p>
         {this.generateCards()}
         </div>
         <div className="TotalAvailableCredit">

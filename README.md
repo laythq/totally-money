@@ -1,6 +1,6 @@
 ![Image](./totally-money.png?raw=true)
 
-# Totally Money
+# Totally Money - Crazy Cards
 
 A Crazy Cards Application that allows customers to enter their details and see what cards are available to them (see [spec](https://www.totallymoney.com/content/candidate-test.html)).
 

@@ -51,9 +51,8 @@ export class Card extends Component {
             <input
               type="checkbox"
               name={this.props.card.name}
-              value={this.props.card['Credit Available']}
+              checked={this.props.checked}
               onChange={this.props.onChange}
-              // checked={this.props.isChecked}
             />
           </p>
         </div>

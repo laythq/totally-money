@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import './styles/app.css';
 import { CardList } from './cardList';
 import { Card } from './card';
@@ -11,22 +12,40 @@ class App extends Component {
       student: true,
       highIncome: true,
       totalCredit: 0,
+      checkedCards: [],
     };
   };
 
   setStudentStatus(event) {
     const boolean = (event.target.value === 'true');
-    this.setState({ student: boolean, totalCredit: 0 }, this.returnCards);
+    this.setState({
+      student: boolean,
+      totalCredit: 0,
+      checkedCards: [],
+    }, this.returnCards);
   };
 
   setIncomeStatus(event) {
     const boolean = (event.target.value === 'true');
-    this.setState({ highIncome: boolean, totalCredit: 0 }, this.returnCards);
+    this.setState({
+      highIncome: boolean,
+      totalCredit: 0,
+      checkedCards: [],
+    }, this.returnCards);
   };
 
   generateCards() {
-    return this.state.availableCards.map(card => <Card
-      card={card} onChange={event => this.selectCard(event)}/>);
+    const checkedCards = this.state.checkedCards;
+    return this.state.availableCards.map(card => (
+      <Card
+        card={card}
+        checked={checkedCards.includes(card.name)}
+        onChange={event => this.selectCard(
+          card.name,
+          event.target.checked,
+        )}
+      />
+    ));
   };
 
   returnCards() {
@@ -38,21 +57,32 @@ class App extends Component {
     });
   };
 
-  selectCard(event) {
-    if (event.target.checked) {
-      this.setState({
-        totalCredit:
-        this.state.totalCredit += parseInt(event.target.value),
-      });
+  selectCard(cardName, checked) {
+    const checkedCards = Object.create(this.state.checkedCards);
+    if (checked) {
+      if (!checkedCards.includes(cardName)) {
+        checkedCards.push(cardName);
+      }
     } else {
-      this.setState({
-        totalCredit:
-        this.state.totalCredit -= parseInt(event.target.value),
-      });
+      const idx = checkedCards.indexOf(cardName);
+      if (idx !== -1) {
+        checkedCards.splice(idx, 1);
+      }
     }
+
+    this.setState({ checkedCards });
   }
 
   render() {
+    const checked = this.state.checkedCards;
+    const available = this.props.cards;
+    const totalCredit = available.reduce((total, card) => {
+      if (checked.includes(card.name)){
+        return total + card["Credit Available"];
+      }
+      return total;
+    }, 0);
+
     return (
         <div className="wrapper">
           <div className="UserInput">
@@ -114,7 +144,7 @@ class App extends Component {
             <h2>Total Available Credit</h2>
             <p>
             £
-              {this.state.totalCredit}
+              {totalCredit}
             </p>
           </div>
         </div>

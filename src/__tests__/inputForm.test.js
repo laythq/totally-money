@@ -1,6 +1,6 @@
 import React from 'react';
-import InputForm from './inputForm';
-import availableCards from './availableCards.json'
+import InputForm from '../inputForm';
+import availableCards from '../assets/availableCards.json'
 import { shallow } from 'enzyme';
 
 describe('Input Form', () => {
@@ -14,27 +14,6 @@ describe('Input Form', () => {
     expect(wrapper.state('highIncome')).toEqual(true)
   });
 })
-
-
-//
-// describe('Income Button', () => {
-//   it('renders with a high and low income button', () => {
-//     let wrapper = shallow(<InputForm cards={[StudentLife, AnywhereCard, LiquidCard]}/>);
-//     expect(wrapper.find('#highIncome').length).toEqual(1);
-//     expect(wrapper.find('#lowIncome').length).toEqual(1)
-//   })
-//   it('clicking `No` will change state of highIncome to false', () => {
-//     let wrapper = shallow(<InputForm cards={[StudentLife, AnywhereCard, LiquidCard]}/>);
-//     wrapper.find('#lowIncome').simulate('click')
-//     expect(wrapper.state('highIncome')).toEqual(false)
-//   });
-//   it('clicking `Yes will change state of highIncome back to true`', () => {
-//     let wrapper = shallow(<InputForm cards={[StudentLife, AnywhereCard, LiquidCard]}/>);
-//     wrapper.find('#lowIncome').simulate('click')
-//     wrapper.find('#highIncome').simulate('click')
-//     expect(wrapper.state('highIncome')).toEqual(true)
-//   })
-// })
 
 describe('#setStudentStatus', () => {
   it('updates the state of `student` to false if if event.value is false', () => {
@@ -122,22 +101,3 @@ describe('#selectCard', () => {
     expect(wrapper.state('totalCredit')).toEqual(-1000)
   })
 })
-
-// describe('Available Cards', () => {
-//   it('should default with a header and all three cards', () => {
-//     let wrapper = shallow(<InputForm cards={[StudentLife, AnywhereCard, LiquidCard]}/>);
-//     expect(wrapper.find('.AvailableCards').containsAllMatchingElements(['Available Cards', 'Student Life', 'Anywhere Card', 'Liquid Card'])).toEqual(true)
-//   })
-//   it('should return all three cards if this.state({student: true, highIncome: true})', () => {
-//     let wrapper = shallow(<InputForm cards={[StudentLife, AnywhereCard, LiquidCard]}/>);
-//     wrapper.setState({student: true, highIncome: true})
-//     expect(wrapper.find('.AvailableCards').containsAllMatchingElements(['Available Cards', 'Student Life', 'Anywhere Card', 'Liquid Card'])).toEqual(true)
-//   })
-//   it('should not return Liquid Card if this.state({student: true, highIncome: false})', () => {
-//     let wrapper = shallow(<InputForm cards={[StudentLife, AnywhereCard, LiquidCard]}/>);
-//     wrapper.setState({student: true, highIncome: false})
-//     console.log(wrapper.find('.AvailableCards').text())
-//     console.log(wrapper.state('availableCards'))
-//     expect(wrapper.find('.AvailableCards').containsMatchingElement('Liquid Card')).toEqual(false)
-//   })
-// })

@@ -19,6 +19,11 @@
     "feature:test" : "npm start & npx cypress run"
   },
   "eslintConfig": {
+    "env": {
+      "jest": true,
+      "es5": true,
+      "node": true,
+    },
     "extends": "react-app"
   },
   "browserslist": [

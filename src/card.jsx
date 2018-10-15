@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './inputForm.css';
-import './card.css'
+import './styles/card.css'
 
 export class Card extends Component {
   constructor(props) {

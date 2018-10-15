@@ -1,5 +1,5 @@
-const { CardList } = require('./unit.js')
-const availableCards = require('./availableCards.json')
+const { CardList } = require('../cardList.js')
+const availableCards = require('../assets/availableCards.json')
 
 describe('CardList', () => {
   const cardList = new CardList(availableCards)

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './inputForm.css';
-import {CardList} from './unit.js'
+import './styles/inputForm.css';
+import { CardList } from './cardList.js'
 import { Card } from './card.jsx'
 
 class InputForm extends Component {

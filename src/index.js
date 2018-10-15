@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import InputForm from './inputForm';
 import * as serviceWorker from './serviceWorker';
-import availableCards from './availableCards.json'
-// import { StudentLife, AnywhereCard, LiquidCard} from './unit.js'
+import availableCards from './assets/availableCards.json'
 
 ReactDOM.render(<InputForm cards={availableCards}/>, document.getElementById('root'));
 

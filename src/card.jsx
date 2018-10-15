@@ -53,6 +53,7 @@ export class Card extends Component {
               name={this.props.card.name}
               value={this.props.card['Credit Available']}
               onChange={this.props.onChange}
+              // checked={this.props.isChecked}
             />
           </p>
         </div>

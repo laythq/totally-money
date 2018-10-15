@@ -16,17 +16,17 @@ class App extends Component {
 
   setStudentStatus(event) {
     const boolean = (event.target.value === 'true');
-    this.setState({ student: boolean }, this.returnCards);
+    this.setState({ student: boolean, totalCredit: 0 }, this.returnCards);
   };
 
   setIncomeStatus(event) {
     const boolean = (event.target.value === 'true');
-    this.setState({ highIncome: boolean }, this.returnCards);
+    this.setState({ highIncome: boolean, totalCredit: 0 }, this.returnCards);
   };
 
   generateCards() {
     return this.state.availableCards.map(card => <Card
-      card={card} onChange={event => this.selectCard(event)} />);
+      card={card} onChange={event => this.selectCard(event)}/>);
   };
 
   returnCards() {
@@ -65,7 +65,7 @@ class App extends Component {
                     defaultChecked
                     name="student"
                     id="isStudent"
-                    value
+                    value={true}
                   />
                   Yes
                 </label>
@@ -89,7 +89,7 @@ class App extends Component {
                     defaultChecked
                     name="income"
                     id="highIncome"
-                    value
+                    value={true}
                   />
                   Yes
                 </label>

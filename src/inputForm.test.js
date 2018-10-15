@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import InputForm from './inputForm';
 import availableCards from './availableCards.json'
-// import {StudentLife, AnywhereCard, LiquidCard} from './unit.js'
 import { shallow } from 'enzyme';
 
 describe('Input Form', () => {
@@ -17,26 +15,7 @@ describe('Input Form', () => {
   });
 })
 
-// describe('Student Button', () => {
-//   it('renders with a yes and a no button', () => {
-//     let wrapper = shallow(<InputForm cards={availableCards}/>);
-//     expect(wrapper.find('#isStudent').length).toEqual(1);
-//     expect(wrapper.find('#isNotStudent').length).toEqual(1)
-//   })
-//   it('clicking `Yes` will change state of student to true', () => {
-//     let wrapper = shallow(<InputForm cards={availableCards}/>);
-//     wrapper.find('#isStudent').simulate('change', {target: {checked: true}})
-//     expect(wrapper.state('student')).toEqual(true)
-//   });
-//   it('clicking `No will change state of student back to false`', () => {
-//     let wrapper  = shallow(<InputForm cards={availableCards}/>);
-//     // wrapper.find('#isStudent').simulate('check')
-//     console.log(wrapper.find('#isNotStudent'))
-//     const radioButton = wrapper.find('input[type="radio"]').find('#isNotStudent')
-//     radioButton.simulate('change', { target: { checked: false } })
-//     expect(wrapper.state('student')).toEqual(false)
-//   })
-// })
+
 //
 // describe('Income Button', () => {
 //   it('renders with a high and low income button', () => {
@@ -57,27 +36,59 @@ describe('Input Form', () => {
 //   })
 // })
 
-describe('#returnCards', () => {
-  it('availableCards is changed to [StudentLife, AnywhereCard] when this.state{student: true, highIncome: false}', () => {
+describe('#setStudentStatus', () => {
+  it('updates the state of `student` to false if if event.value is false', () => {
     let wrapper = shallow(<InputForm cards={availableCards}/>);
+    const mockEvent = {target: {value: 'false'}}
+    wrapper.instance().setStudentStatus(mockEvent)
+    expect(wrapper.state('student')).toEqual(false)
+  })
+  it('updates the state of `student` to true if if event.value is true', () => {
+    let wrapper = shallow(<InputForm cards={availableCards}/>);
+    const mockEvent = {target: {value: 'true'}}
+    wrapper.setState({student: false})
+    wrapper.instance().setStudentStatus(mockEvent)
+    expect(wrapper.state('student')).toEqual(true)
+  })
+})
+
+describe('#setIncomeStatus', () => {
+  it('updates the state of `highIncome` to false if if event.value is false', () => {
+    let wrapper = shallow(<InputForm cards={availableCards}/>);
+    const mockEvent = {target: {value: 'false'}}
+    wrapper.instance().setIncomeStatus(mockEvent)
+    expect(wrapper.state('highIncome')).toEqual(false)
+  })
+  it('updates the state of `highIncome` to true if if event.value is true', () => {
+    let wrapper = shallow(<InputForm cards={availableCards}/>);
+    const mockEvent = {target: {value: 'true'}}
+    wrapper.setState({highIncome: false})
+    wrapper.instance().setIncomeStatus(mockEvent)
+    expect(wrapper.state('highIncome')).toEqual(true)
+  })
+})
+
+describe('#returnCards', () => {
+  let wrapper
+  beforeEach(() => {
+    wrapper = shallow(<InputForm cards={availableCards}/>);
+  })
+  it('availableCards is changed to [StudentLife, AnywhereCard] when this.state{student: true, highIncome: false}', () => {
     wrapper.setState({student: true, highIncome: false})
     wrapper.instance().returnCards()
     expect(wrapper.state('availableCards').map((card) => card['name'])).toEqual(['Student Life', 'Anywhere Card'])
   })
   it('availableCards is changed to [AnywhereCard] if {student: false, highIncome: false}]', () => {
-    let wrapper = shallow(<InputForm cards={availableCards}/>);
     wrapper.setState({student: false, highIncome: false})
     wrapper.instance().returnCards()
     expect(wrapper.state('availableCards').map((card) => card['name'])).toEqual(['Anywhere Card'])
   })
   it('availableCards is changed to [AnywhereCard, LiquidCard] if {student: false, highIncome: true}]', () => {
-    let wrapper = shallow(<InputForm cards={availableCards}/>);
     wrapper.setState({student: false, highIncome: true})
     wrapper.instance().returnCards()
     expect(wrapper.state('availableCards').map((card) => card['name'])).toEqual(['Anywhere Card', 'Liquid Card'])
   })
   it('availableCards is changed to [StudentLife, AnywhereCard, LiquidCard] if {student: true, highIncome: true}]', () => {
-    let wrapper = shallow(<InputForm cards={availableCards}/>);
     wrapper.setState({student: true, highIncome: true})
     wrapper.instance().returnCards()
     expect(wrapper.state('availableCards').map((card) => card['name'])).toEqual(['Student Life', 'Anywhere Card', 'Liquid Card'])
@@ -96,11 +107,19 @@ describe('#generateCards', () => {
   })
 })
 
-describe('#generateTotalCredit', () => {
-  it('should update state {totalCredit}', () => {
+describe('#selectCard', () => {
+  it('should increase total credit by the event value if checkbox is checked', () => {
     let wrapper = shallow(<InputForm cards={availableCards}/>);
-    wrapper.instance().generateTotalCredit()
-    expect(wrapper.state('totalCredit')).toEqual(4500)
+    const mockEvent = {target: {value: '1000', checked: true}}
+    wrapper.instance().selectCard(mockEvent)
+    expect(wrapper.state('totalCredit')).toEqual(1000)
+  })
+
+  it('should decrease total credit by the event value if checkbox is unchecked', () => {
+    let wrapper = shallow(<InputForm cards={availableCards}/>);
+    const mockEvent = {target: {value: '1000', checked: false}}
+    wrapper.instance().selectCard(mockEvent)
+    expect(wrapper.state('totalCredit')).toEqual(-1000)
   })
 })
 

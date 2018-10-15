@@ -53,3 +53,6 @@ To run this in the terminal, run: `npx cypress run`.
 
 The airbnb style guide was used where possible for .js and .jsx files. HTML was cleaned up using the [Dirty Markup](https://www.10bestdesign.com/dirtymarkup/) tool. Overall, I used this [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist) where applicable for major points (I was not able to check off everything). For the application as a whole, I used [this](https://github.com/elsewhencode/project-guidelines) guide for best-practices with Javascript projects as much as possible. 
 
+## Issues
+
+Just before submitting this application, I discovered a bug in the App component. If the user selects one or more cards then changes their employment status, the cards will re-render correctly and all checkboxes will be unchecked. However, if the user selects one or more cards and changes their Income status, then some of the checkboxes re-render as checked. Both the student and income elements have exactly the same structure, and I am not sure what the root of the problem is. 

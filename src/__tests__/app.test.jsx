@@ -85,19 +85,3 @@ describe('#generateCards', () => {
     expect(wrapper.instance().generateCards().length).toEqual(1);
   });
 });
-
-describe('#selectCard', () => {
-  it('should increase total credit by the event value if checkbox is checked', () => {
-    const wrapper = shallow(<App cards={availableCards} />);
-    const mockEvent = { target: { value: '1000', checked: true } };
-    wrapper.instance().selectCard(mockEvent);
-    expect(wrapper.state('totalCredit')).toEqual(1000);
-  });
-
-  it('should decrease total credit by the event value if checkbox is unchecked', () => {
-    const wrapper = shallow(<App cards={availableCards} />);
-    const mockEvent = { target: { value: '1000', checked: false } };
-    wrapper.instance().selectCard(mockEvent);
-    expect(wrapper.state('totalCredit')).toEqual(-1000);
-  });
-});

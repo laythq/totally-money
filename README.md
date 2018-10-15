@@ -4,7 +4,7 @@
 
 A Crazy Cards Application that allows customers to enter their details and see what cards are available to them (see [spec](https://www.totallymoney.com/content/candidate-test.html)).
 
-It is a single-page application written in React, consisting of a parent component (`<App />`), and a  `<Card />` component for rendering the available cards as children of this parent.
+A single-page application written in React, consisting of a parent component (`<App />`), and a  `<Card />` component for rendering the available cards as children of this parent.
 
 The application's logic is handled by a model written in JS, `cardList.js`, which filters the available cards according to the user's income and employment status.
 
@@ -33,7 +33,7 @@ This application was built using the `create-react-app` tool, a front-end build 
 
 It seemed appropriate to solve all the requirements defined in the specification by simplifying the user's experience as much as possible. Because the application only requires two values from the user in order to return a list (employment status and income), using two sets of radio buttons for each input was a straightforward way of getting this information from the user without complicating the interface unecessarily. 
 
-The specification also required that the user be able to get more detail on each card. In order not to clutter the page, while also keeping the app in one page, each card has two sides and flips when the user hovers over them. The back-side of the card, which shows on hover, contains more details about the cards.
+The specification also required that the user be able to get more detail on each card. In order not to clutter the page, while also keeping the app in one page, each card has two sides and flips when the user hovers over it. The back-side of the card, which shows on hover, contains more details about the cards.
 
 The user can select a number of cards and see the total credit available to them. To handle this selection feature, a group of three checkboxes (one per card) exist which update the state of the component when changed. Checking and unchecking the component will add and subtract from the total credit value appropriately.
 

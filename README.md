@@ -47,7 +47,7 @@ The unit tests focus mostly on testing outcome and changes to the component stat
 
 A full end-to-end browser test was run with the Cypress tool, with the tests mimicking the user stories as much as possible, and allowing for some complex behaviour from the user (e.g. checking and unchecking multiple times).
 
-To run this in the terminal, run: `npx cypress run`.
+To run this in the terminal, run: `npx run feature:test`.
 
 ## Style guide
 

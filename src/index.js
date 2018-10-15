@@ -1,12 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import InputForm from './inputForm';
-import * as serviceWorker from './serviceWorker';
-import availableCards from './assets/availableCards.json'
+import App from './app.jsx';
+import availableCards from './assets/availableCards.json';
 
-ReactDOM.render(<InputForm cards={availableCards}/>, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(<App cards={availableCards} />,
+  document.getElementById('root'));

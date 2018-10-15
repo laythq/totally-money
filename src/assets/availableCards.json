@@ -7,7 +7,7 @@
     "Credit Available": 1200,
     "Student Only": true,
     "High Income Only": false,
-    "Description": "The Student Life credit card is only available to customers with an employment status of Student."
+    "Description": "The Student Life card is only available to customers with an employment status of Student."
   },
   {
     "name": "Anywhere Card",
@@ -17,7 +17,7 @@
     "Credit Available": 300,
     "Student Only": false,
     "High Income Only": false,
-    "Description": "The anywhere card is available to anyone anywhere."
+    "Description": "The Anywhere Card is available to anyone anywhere."
   },
   {
     "name": "Liquid Card",
@@ -27,6 +27,6 @@
     "Credit Available": 3000,
     "Student Only": false,
     "High Income Only": true,
-    "Description": "The Liquid card is a card available to customers who have an income of more than £16,000."
+    "Description": "The Liquid Card is a card available to customers who have an income of more than £16,000."
   }
 ]

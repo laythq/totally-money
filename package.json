@@ -16,21 +16,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "feature:test" : "npm start & npx cypress run"
-  },
-  "eslintConfig": {
-    "env": {
-      "jest": true,
-      "es5": true,
-      "node": true,
-    },
-    "extends": "react-app"
+    "feature:test": "npx cypress run"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {}
+  ]
 }

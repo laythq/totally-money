@@ -8,7 +8,7 @@ A single-page application written in React, consisting of a parent component (`<
 
 The application's logic is handled by a model written in JS, `cardList.js`, which filters the available cards according to the user's income and employment status.
 
-Information on the cards themselves is stored as a JSON file under `./assets/availableCards.json`. This seemed the most appopriate way of storing this date and allows for easy modification. 
+Information on the cards themselves is stored as a JSON file under `./assets/availableCards.json`. This seemed the most appopriate way of storing this date and allows for easy modification.
 
 The page itself is styled using the CSS grid system, with Totally Money font and colouring styles.
 
@@ -31,14 +31,14 @@ This application was built using the `create-react-app` tool, a front-end build 
 
 ## Approach
 
-It seemed appropriate to solve all the requirements defined in the specification by simplifying the user's experience as much as possible. Because the application only requires two values from the user in order to return a list (employment status and income), using two sets of radio buttons for each input was a straightforward way of getting this information from the user without complicating the interface unnecessarily. 
+It seemed appropriate to solve all the requirements defined in the specification by simplifying the user's experience as much as possible. Because the application only requires two values from the user in order to return a list (employment status and income), using two sets of radio buttons for each input was a straightforward way of getting this information from the user without complicating the interface unnecessarily.
 
 The specification also required that the user be able to get more detail on each card. In order not to clutter the page, while also keeping the app in one page, each card has two sides and flips when the user hovers over it. The back-side of the card, which shows on hover, contains more details about the cards.
 
 The user can select a number of cards and see the total credit available to them. To handle this selection feature, a group of three checkboxes (one per card) exist which update the state of the component when changed. Checking and unchecking the component will add and subtract from the total credit value appropriately.
 
 ## Tests
-To run the unit tests of the model and React components, run: 
+To run the unit tests of the model and React components, run:
 
 ```shell
 npm test
@@ -51,8 +51,8 @@ To run this in the terminal, run: `npm run feature:test`.
 
 ## Style guide
 
-The airbnb style guide was used where possible for .js and .jsx files. HTML was cleaned up using the [Dirty Markup](https://www.10bestdesign.com/dirtymarkup/) tool. Overall, I used this [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist) where applicable for major points (I was not able to check off everything). For the application as a whole, I used [this](https://github.com/elsewhencode/project-guidelines) guide for best-practices with Javascript projects as much as possible. 
+The airbnb style guide was used where possible for .js and .jsx files. HTML was cleaned up using the [Dirty Markup](https://www.10bestdesign.com/dirtymarkup/) tool. Overall, I used this [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist) where applicable for major points (I was not able to check off everything). For the application as a whole, I used [this](https://github.com/elsewhencode/project-guidelines) guide for best-practices with Javascript projects as much as possible.
 
 ## Issues
 
-Just before submitting this application, I discovered a bug in the App component. If the user selects one or more cards then changes their employment status, the cards will re-render correctly and all checkboxes will be unchecked. However, if the user selects one or more cards and changes their Income status, then some of the checkboxes re-render as checked. Both the student and income elements have exactly the same structure, and I am not sure what the root of the problem is. 
+Just before submitting this application, I discovered a bug in the App component. If the user selects one or more cards then changes their employment status, the cards will re-render correctly and all checkboxes will be unchecked. However, if the user selects one or more cards and changes their Income status, then some of the checkboxes re-render as checked. Both the student and income elements have exactly the same structure, and I am not sure what the root of the problem is. Unfortunately I do not have time to resolve this but hope to find a solution after the deadline has passed. 

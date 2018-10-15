@@ -31,7 +31,7 @@ This application was built using the `create-react-app` tool, a front-end build 
 
 ## Approach
 
-It seemed appropriate to solve all the requirements defined in the specification by simplifying the user's experience as much as possible. Because the application only requires two values from the user in order to return a list (employment status and income), using two sets of radio buttons for each input was a straightforward way of getting this information from the user without complicating the interface unecessarily. 
+It seemed appropriate to solve all the requirements defined in the specification by simplifying the user's experience as much as possible. Because the application only requires two values from the user in order to return a list (employment status and income), using two sets of radio buttons for each input was a straightforward way of getting this information from the user without complicating the interface unnecessarily. 
 
 The specification also required that the user be able to get more detail on each card. In order not to clutter the page, while also keeping the app in one page, each card has two sides and flips when the user hovers over it. The back-side of the card, which shows on hover, contains more details about the cards.
 

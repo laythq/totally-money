@@ -1,1 +1,1 @@
-![Alt text](/totally-money.jpg")
+![Alt text](/totally-money.png")
